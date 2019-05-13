@@ -38,7 +38,17 @@ public class GeniepyGenerator extends PythonClientCodegen implements CodegenConf
     public void processOpts() {
         super.processOpts();
 
-        supportingFiles.add(new SupportingFile(GENIEPY + File.separatorChar + "opsgenieCodegenModels.mustache", "", "opsgenieCodegenModels.csv"));
+        supportingFiles.add(new SupportingFile("opsgenieCodegenModels.mustache", "", "opsgenieCodegenModels.csv"));
+
+        supportingFiles.add(new SupportingFile("metrics/__init__.mustache", packageName + File.separator + "metrics", "__init__.py"));
+        supportingFiles.add(new SupportingFile("metrics/api_metric.mustache", packageName + File.separator + "metrics", "api_metric.py"));
+        supportingFiles.add(new SupportingFile("metrics/http_metric.mustache", packageName + File.separator + "metrics", "http_metric.py"));
+        supportingFiles.add(new SupportingFile("metrics/observer.mustache", packageName + File.separator + "metrics", "observer.py"));
+        supportingFiles.add(new SupportingFile("metrics/publisher.mustache", packageName + File.separator + "metrics", "publisher.py"));
+        supportingFiles.add(new SupportingFile("metrics/sdk_metric.mustache", packageName + File.separator + "metrics", "sdk_metric.py"));
+
+        supportingFiles.add(new SupportingFile("errors.mustache", packageName, "errors.py"));
+        supportingFiles.add(new SupportingFile("proxy_configuration.mustache", packageName, "proxy_configuration.py"));
     }
 
     @Override
