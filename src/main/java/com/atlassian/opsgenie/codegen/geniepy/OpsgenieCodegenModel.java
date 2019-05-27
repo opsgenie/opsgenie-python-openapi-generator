@@ -1,7 +1,7 @@
 package com.atlassian.opsgenie.codegen.geniepy;
 
-import io.swagger.codegen.CodegenModel;
 import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.openapitools.codegen.CodegenModel;
 
 import java.util.Objects;
 

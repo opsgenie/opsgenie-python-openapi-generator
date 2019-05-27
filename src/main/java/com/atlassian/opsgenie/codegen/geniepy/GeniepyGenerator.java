@@ -1,10 +1,10 @@
 package com.atlassian.opsgenie.codegen.geniepy;
 
-import io.swagger.codegen.CodegenConfig;
-import io.swagger.codegen.CodegenModel;
-import io.swagger.codegen.SupportingFile;
-import io.swagger.codegen.languages.PythonClientCodegen;
 import org.apache.commons.lang3.StringUtils;
+import org.openapitools.codegen.CodegenConfig;
+import org.openapitools.codegen.CodegenModel;
+import org.openapitools.codegen.SupportingFile;
+import org.openapitools.codegen.languages.PythonClientCodegen;
 
 import java.io.File;
 import java.util.*;
