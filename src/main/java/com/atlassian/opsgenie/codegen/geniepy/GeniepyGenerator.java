@@ -39,6 +39,7 @@ public class GeniepyGenerator extends PythonClientCodegen implements CodegenConf
         super.processOpts();
 
         supportingFiles.add(new SupportingFile("opsgenieCodegenModels.mustache", "", "opsgenieCodegenModels.csv"));
+        supportingFiles.add(new SupportingFile("LICENSE.mustache", "", "LICENSE.txt"));
 
         supportingFiles.add(new SupportingFile("metrics/__init__.mustache", packageName + File.separator + "metrics", "__init__.py"));
         supportingFiles.add(new SupportingFile("metrics/api_metric.mustache", packageName + File.separator + "metrics", "api_metric.py"));
