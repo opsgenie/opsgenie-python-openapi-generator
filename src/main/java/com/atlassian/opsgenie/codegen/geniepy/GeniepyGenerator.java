@@ -15,6 +15,7 @@ public class GeniepyGenerator extends PythonClientCodegen implements CodegenConf
     private static final String GENIEPY = "geniepy";
 
     private List<OpsgenieCodegenModel> opsgenieCodegenModels = new LinkedList<>();
+    private Set<String> excludedSupportingFileNames = new HashSet<>();
 
     public String getName() {
         return GENIEPY;
@@ -32,6 +33,8 @@ public class GeniepyGenerator extends PythonClientCodegen implements CodegenConf
         embeddedTemplateDir = templateDir = GENIEPY;
 
         additionalProperties.put("opsgenieCodegenModels", opsgenieCodegenModels);
+
+        excludedSupportingFileNames.add("git_push.sh.mustache");
     }
 
     @Override
@@ -50,6 +53,8 @@ public class GeniepyGenerator extends PythonClientCodegen implements CodegenConf
 
         supportingFiles.add(new SupportingFile("errors.mustache", packageName, "errors.py"));
         supportingFiles.add(new SupportingFile("proxy_configuration.mustache", packageName, "proxy_configuration.py"));
+
+        supportingFiles.removeIf(supportingFile -> excludedSupportingFileNames.contains(supportingFile.templateFile));
     }
 
     @Override
